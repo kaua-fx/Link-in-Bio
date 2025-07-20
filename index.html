@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kauã | Videomaker & Fotógrafo Profissional</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* VARIÁVEIS E RESET */
+    :root {
+      --dark: #0D0D0D;
+      --orange: #FF5C00;
+      --neon: #00FF88;
+      --light: #F1F1F1;
+      --tiktok-pink: #FE2C55;
+      --tiktok-blue: #25F4EE;
+      --instagram-purple: #833AB4;
+      --instagram-orange: #E1306C;
+      --whatsapp-green: #25D366;
+      --border-color: rgba(255, 255, 255, 0.1);
+      --akatsuki-red: #E53935;
+      --rinnegan-purple: #7B1FA2;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--light);
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-color: var(--dark);
+      background-image: 
+        repeating-linear-gradient(
+          45deg,
+          rgba(28, 28, 28, 0.3) 0px,
+          rgba(37, 37, 37, 0.3) 1px,
+          transparent 1px,
+          transparent 50px
+        ),
+        radial-gradient(circle at center, #1a1a1a 0%, var(--dark) 100%);
+      animation: bgScan 8s linear infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    @keyframes bgScan {
+      0% { background-position: 0 0; }
+      100% { background-position: 50px 50px; }
+    }
+
+    /* CONTAINER PRINCIPAL */
+    .container {
+      width: 100%;
+      max-width: 500px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      position: relative;
+      z-index: 1;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    /* HEADER */
+    header {
+      text-align: center;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .profile-pic {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--orange);
+      box-shadow: 0 0 30px rgba(255, 92, 0, 0.5);
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      z-index: 2;
+    }
+
+    .profile-pic:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 50px rgba(255, 92, 0, 0.8);
+    }
+
+    .profile-name {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin: 0;
+      background: linear-gradient(90deg, var(--light), var(--orange));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .profile-name:hover {
+      animation: nameGlow 1.5s infinite alternate;
+    }
+
+    @keyframes nameGlow {
+      0% { text-shadow: 0 0 5px rgba(255, 92, 0, 0.3); }
+      100% { text-shadow: 0 0 20px rgba(255, 92, 0, 0.8); }
+    }
+
+    .tagline {
+      font-size: 1.1rem;
+      color: rgba(241, 241, 241, 0.8);
+      max-width: 100%;
+      margin: 0;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+    }
+
+    /* BOTÕES */
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      font-size: 1rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      color: var(--light);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn i {
+      margin-right: 10px;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    /* BOTÃO WHATSAPP */
+    .btn-whatsapp {
+      --btn-color: var(--whatsapp-green);
+    }
+
+    .btn-whatsapp:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 25px rgba(37, 211, 102, 0.4);
+      animation: whatsappPulse 1.5s infinite;
+    }
+
+    @keyframes whatsappPulse {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+
+    /* BOTÃO INSTAGRAM */
+    .btn-instagram {
+      --btn-color: linear-gradient(45deg, var(--instagram-purple), var(--instagram-orange));
+    }
+
+    .btn-instagram:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 25px rgba(131, 58, 180, 0.4);
+      animation: instagramFade 3s infinite;
+    }
+
+    @keyframes instagramFade {
+      0% { background: linear-gradient(45deg, var(--instagram-purple), var(--instagram-orange)); }
+      50% { background: linear-gradient(45deg, var(--instagram-orange), var(--instagram-purple)); }
+      100% { background: linear-gradient(45deg, var(--instagram-purple), var(--instagram-orange)); }
+    }
+
+    /* BOTÃO TIKTOK */
+    .btn-tiktok {
+      --btn-color: black;
+    }
+
+    .btn-tiktok:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 25px rgba(254, 44, 85, 0.3);
+    }
+
+    .btn-tiktok::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, 
+        transparent, 
+        var(--tiktok-blue), 
+        var(--tiktok-pink), 
+        white, 
+        transparent
+      );
+      transition: all 0.6s ease;
+      opacity: 0.5;
+    }
+
+    .btn-tiktok:hover::after {
+      left: 100%;
+    }
+
+    /* BOTÃO PORTFOLIO */
+    .btn-portfolio {
+      --btn-color: var(--orange);
+    }
+
+    .btn-portfolio:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 25px rgba(255, 92, 0, 0.4);
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background: var(--btn-color);
+      transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      z-index: -1;
+    }
+
+    .btn:hover::before {
+      width: 100%;
+    }
+
+    .btn:hover i {
+      transform: scale(1.2);
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 1.5rem;
+      text-align: center;
+      color: rgba(241, 241, 241, 0.6);
+      font-size: 0.9rem;
+      width: 100%;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-link {
+      color: rgba(241, 241, 241, 0.6);
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      color: var(--orange);
+      transform: translateY(-3px) scale(1.1);
+    }
+
+    /* EASTER EGG */
+    .easter-egg-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.95);
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1.5s ease;
+    }
+
+    .easter-egg-active .easter-egg-overlay {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .video-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.15;
+      z-index: 1;
+    }
+
+    .rinnegan-eyes-container {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 80px;
+      z-index: 2;
+    }
+
+    .rinnegan-eye {
+      width: 120px;
+      height: 120px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .rinnegan-eye::before {
+      content: '';
+      position: absolute;
+      bottom: -100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: inherit;
+      filter: drop-shadow(0 0 15px var(--rinnegan-purple));
+      animation: eyeReveal 2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    @keyframes eyeReveal {
+      0% { bottom: -100%; opacity: 0; }
+      100% { bottom: 0; opacity: 1; }
+    }
+
+    .easter-egg-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 100%;
+      max-width: 500px;
+      padding: 0 20px;
+      z-index: 2;
+    }
+
+    .easter-egg-name {
+      font-family: 'Courier New', monospace;
+      font-size: 3.5rem;
+      color: var(--akatsuki-red);
+      text-shadow: 0 0 15px var(--akatsuki-red);
+      letter-spacing: 3px;
+      margin: 1rem 0;
+      opacity: 0;
+      animation: fadeIn 0.5s ease-out 1s forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    .profile-pain {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--akatsuki-red);
+      box-shadow: 0 0 30px var(--akatsuki-red);
+      z-index: 2;
+      opacity: 0;
+      transform: scale(0.8);
+      animation: 
+        fadeIn 0.5s ease-out 1.5s forwards,
+        painGlow 2s infinite alternate 2s;
+    }
+
+    @keyframes painGlow {
+      0% { box-shadow: 0 0 30px var(--akatsuki-red); }
+      100% { box-shadow: 0 0 50px var(--akatsuki-red); }
+    }
+
+    .easter-egg-text {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1.2rem;
+      max-width: 100%;
+      margin: 1rem 0 2rem;
+      opacity: 0;
+      animation: fadeIn 0.5s ease-out 2s forwards;
+    }
+
+    .back-to-present {
+      padding: 0.8rem 1.5rem;
+      background: transparent;
+      border: 1px solid var(--akatsuki-red);
+      color: var(--light);
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      opacity: 0;
+      animation: fadeIn 0.5s ease-out 2.5s forwards;
+    }
+
+    .back-to-present:hover {
+      background: var(--akatsuki-red);
+      box-shadow: 0 0 15px var(--akatsuki-red);
+    }
+
+    /* RESPONSIVO */
+    @media (max-width: 768px) {
+      .container {
+        padding: 30px 20px;
+      }
+      
+      .profile-pic {
+        width: 150px;
+        height: 150px;
+      }
+      
+      .profile-name {
+        font-size: 2rem;
+      }
+      
+      .tagline {
+        font-size: 1rem;
+      }
+      
+      .rinnegan-eye {
+        width: 80px;
+        height: 80px;
+      }
+      
+      .easter-egg-name {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 25px 15px;
+      }
+      
+      .profile-pic {
+        width: 130px;
+        height: 130px;
+      }
+      
+      .profile-name {
+        font-size: 1.8rem;
+      }
+      
+      .rinnegan-eyes-container {
+        gap: 40px;
+      }
+      
+      .rinnegan-eye {
+        width: 60px;
+        height: 60px;
+      }
+      
+      .easter-egg-name {
+        font-size: 2rem;
+      }
+      
+      .easter-egg-text {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Easter Egg Overlay -->
+  <div class="easter-egg-overlay">
+    <video class="video-background" autoplay muted loop>
+      <source src="obrigado pelo apoio.mp4" type="video/mp4">
+      <source src="obrigado pelo apoio.mp4" type="video/webm">
+      <!-- Fallback para imagem caso o vídeo não carregue -->
+      <div class="edit-background" style="background-image: url('Sobr_iza.jpg')"></div>
+    </video>
+    
+    <div class="rinnegan-eyes-container">
+      <div class="rinnegan-eye" style="background-image: url('olho esquerdo.png')"></div>
+      <div class="rinnegan-eye" style="background-image: url('olho direito.png')"></div>
+    </div>
+    
+    <div class="easter-egg-content">
+      <div class="easter-egg-name">SOBR_IZA</div>
+      <img src="Sobr_iza.jpg" alt="Pain" class="profile-pain">
+      <div class="easter-egg-text">Antes de contar histórias com câmeras, eu cortava frames com paixão.</div>
+      <button class="back-to-present">Voltar ao Presente</button>
+    </div>
+  </div>
+
+  <!-- Conteúdo Principal -->
+  <div class="container">
+    <header>
+      <img src="foto perfil.jpg" alt="Kauã - Videomaker Profissional" class="profile-pic">
+      
+      <h1 class="profile-name">Kauã FX</h1>
+      <p class="tagline">Transformando ideias em vídeos com impacto visual</p>
+    </header>
+
+    <div class="buttons">
+      <a href="https://wa.me/554888646926?text=Ol%C3%A1%2C%20Kau%C3%A3!%20Vi%20seu%20portf%C3%B3lio%20e%20fiquei%20interessado(a)%20no%20seu%20trabalho%20com%20v%C3%ADdeos%20e%20edi%C3%A7%C3%A3o.%20Gostaria%20de%20saber%20mais%20sobre%20seus%20servi%C3%A7os%20e%20valores.%20Pode%20me%20passar%20as%20informa%C3%A7%C3%B5es%3F" class="btn btn-whatsapp" target="_blank">
+        <i class="fab fa-whatsapp"></i> Fale comigo
+      </a>
+      
+      <a href="https://instagram.com/kaua._fx_" class="btn btn-instagram" target="_blank">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
+      
+      <a href="https://tiktok.com/@kaua._fx" class="btn btn-tiktok" target="_blank">
+        <i class="fab fa-tiktok"></i> TikTok
+      </a>
+      
+      <a href="https://kaua-fx.github.io/kaua-portfolio/" class="btn btn-portfolio">
+        <i class="fas fa-play-circle"></i> Ver Portfólio
+      </a>
+    </div>
+
+    <footer>
+      <p>© 2025 Kauã Videomaker - Todos os direitos reservados</p>
+      <div class="social-links">
+        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-behance"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-vimeo-v"></i></a>
+      </div>
+    </footer>
+  </div>
+
+  <audio id="akatsuki-theme" loop>
+    <source src="Akatsuki All members Konan itachi kisame sasori original naruto shipuden.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    // Easter Egg Logic
+    const easterEggOverlay = document.querySelector('.easter-egg-overlay');
+    const backToPresentBtn = document.querySelector('.back-to-present');
+    const profileName = document.querySelector('.profile-name');
+    const akatsukiTheme = document.getElementById('akatsuki-theme');
+    const bgVideo = document.querySelector('.video-background');
+    
+    // Variáveis para o Easter Egg
+    let typedString = '';
+    let clickCount = 0;
+    let lastClickTime = 0;
+    let easterEggActive = false;
+    
+    // Ativar Easter Egg
+    function activateEasterEgg() {
+      if (easterEggActive) return;
+      easterEggActive = true;
+      
+      document.body.classList.add('easter-egg');
+      document.body.classList.add('easter-egg-active');
+      
+      // Tocar música da Akatsuki
+      akatsukiTheme.volume = 0.3;
+      akatsukiTheme.play().catch(e => console.log("Autoplay blocked:", e));
+      
+      // Iniciar vídeo de fundo
+      bgVideo.currentTime = 0;
+      bgVideo.play().catch(e => console.log("Video play error:", e));
+    }
+    
+    // Desativar Easter Egg
+    function deactivateEasterEgg() {
+      if (!easterEggActive) return;
+      easterEggActive = false;
+      
+      document.body.classList.remove('easter-egg');
+      document.body.classList.remove('easter-egg-active');
+      
+      // Parar música e vídeo
+      akatsukiTheme.pause();
+      akatsukiTheme.currentTime = 0;
+      bgVideo.pause();
+    }
+    
+    // Detectar digitação "sobriza"
+    document.addEventListener('keydown', (e) => {
+      typedString += e.key.toLowerCase();
+      if (typedString.length > 7) {
+        typedString = typedString.substring(typedString.length - 7);
+      }
+      
+      if (typedString === 'sobriza') {
+        activateEasterEgg();
+        typedString = '';
+      }
+    });
+    
+    // Detectar até 12 cliques no nome
+    profileName.addEventListener('click', () => {
+      const now = new Date().getTime();
+      if (now - lastClickTime < 1000) { // 1 segundo entre cliques
+        clickCount++;
+      } else {
+        clickCount = 1;
+      }
+      lastClickTime = now;
+      
+      if (clickCount >= 12) {
+        activateEasterEgg();
+        clickCount = 0;
+      }
+    });
+    
+    // Botão para voltar ao normal
+    backToPresentBtn.addEventListener('click', deactivateEasterEgg);
+  </script>
+</body>
+</html>
