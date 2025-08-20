@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kauã | Videomaker & Fotógrafo Profissional</title>
-    <!-- Metatags para compartilhamento (Personalizadas para seu GitHub Pages) -->
+  <!-- Metatags para compartilhamento (Personalizadas para seu GitHub Pages) -->
   <meta property="og:title" content="Kauã FX | Videomaker Profissional">
   <meta property="og:description" content="Transformando ideias em vídeos com impacto visual">
   <meta property="og:image" content="https://kaua-fx.github.io/Link-in-Bio/foto%20perfil.jpg">
@@ -27,6 +27,7 @@
       --instagram-purple: #833AB4;
       --instagram-orange: #E1306C;
       --whatsapp-green: #25D366;
+      --produtos-yellow: #fff159; /* Amarelo do Mercado Livre */
       --border-color: rgba(255, 255, 255, 0.1);
       --akatsuki-red: #E53935;
       --rinnegan-purple: #7B1FA2;
@@ -243,6 +244,35 @@
     .btn-tiktok:hover::after {
       left: 100%;
     }
+    /* BOTÃO PRODUTOS */
+.btn-produtos {
+    --btn-color: var(--produtos-yellow);
+    color: #ffffff; /* Texto escuro para contraste */
+    background: rgba(255, 255, 255, 0.05);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Sombra suave no texto */
+}
+
+.btn-produtos:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 25px rgba(255, 241, 89, 0.4);
+    animation: produtosPulse 1.5s infinite;
+    color: #2d2d2d;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Sombra mais forte no hover */
+}
+
+@keyframes produtosPulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 241, 89, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(255, 241, 89, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 241, 89, 0); }
+}
+
+.btn-produtos::before {
+    background: var(--btn-color);
+}
+
+.btn-produtos:hover::before {
+    width: 100%;
+}
 
     /* BOTÃO PORTFOLIO */
     .btn-portfolio {
@@ -554,6 +584,11 @@
         <i class="fab fa-tiktok"></i> TikTok
       </a>
       
+      <!-- NOVO BOTÃO PRODUTOS (acima do portfolio) -->
+      <a href="https://kaua-fx.github.io/Afiliado/" class="btn btn-produtos">
+        <i class="fas fa-shopping-cart"></i> Produtos
+      </a>
+      
       <a href="https://kaua-fx.github.io/kaua-portfolio/" class="btn btn-portfolio">
         <i class="fas fa-play-circle"></i> Ver Portfólio
       </a>
@@ -561,14 +596,6 @@
 
     <footer>
       <p>© 2025 Kauã Videomaker - Todos os direitos reservados</p>
-      <div class="social-links">
-        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
-        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-        <a href="#" class="social-link"><i class="fab fa-behance"></i></a>
-        <a href="#" class="social-link"><i class="fab fa-vimeo-v"></i></a>
-      </div>
-    </footer>
-  </div>
 
   <audio id="akatsuki-theme" loop>
     <source src="Akatsuki All members Konan itachi kisame sasori original naruto shipuden.mp3" type="audio/mpeg">
